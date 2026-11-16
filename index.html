@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora Matemáticas Online Gratis | Resuelve Paso a Paso</title>
+<meta name="description" content="Calculadora matemáticas online y gratis: suma, resta, multiplica y divide al instante. Aprende cómo resolver cada operación paso a paso con ejemplos claros.">
+<meta property="og:title" content="Calculadora Matemáticas Online Gratis">
+<meta property="og:description" content="Resuelve sumas, restas, multiplicaciones y divisiones y aprende el procedimiento paso a paso.">
+<meta property="og:type" content="website">
+<style>
+  :root { --naranja:#ff6a2b; --negro:#0d0d0d; --gris:#d7e3f0; --texto:#2b2f36; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family: "Segoe UI", Roboto, Arial, sans-serif; color:var(--texto); line-height:1.7; background:#f7f9fc; }
+  header { background:var(--negro); color:#fff; padding:18px 6%; display:flex; justify-content:space-between; align-items:center; }
+  header .logo { font-weight:700; font-size:1.2rem; }
+  header .logo span { color:var(--naranja); }
+  header nav a { color:#fff; text-decoration:none; margin-left:22px; font-size:.95rem; }
+  header nav a:hover { color:var(--naranja); }
+  .hero { background:linear-gradient(135deg,#0d0d0d 0%,#1e2a3a 100%); color:#fff; padding:70px 6%; display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; }
+  .hero h1 { font-size:2.5rem; line-height:1.2; margin-bottom:16px; }
+  .hero h1 span { color:var(--naranja); }
+  .hero p { color:#c9d4e2; font-size:1.05rem; }
+  .calc { background:#fff; color:var(--texto); border-radius:14px; padding:26px; box-shadow:0 12px 40px rgba(0,0,0,.3); }
+  .calc h2 { font-size:1.15rem; margin-bottom:14px; }
+  .calc .fila { display:flex; gap:10px; margin-bottom:12px; }
+  .calc input, .calc select { flex:1; padding:12px; font-size:1.05rem; border:2px solid var(--gris); border-radius:8px; }
+  .calc select { flex:0 0 80px; text-align:center; }
+  .calc button { width:100%; padding:13px; background:var(--naranja); color:#fff; border:none; border-radius:8px; font-size:1.05rem; font-weight:600; cursor:pointer; }
+  .calc button:hover { background:#e85a1d; }
+  .resultado { margin-top:14px; padding:14px; background:#f3f6fa; border-radius:8px; min-height:52px; font-size:.95rem; }
+  .resultado strong { font-size:1.3rem; color:var(--negro); }
+  main { max-width:880px; margin:0 auto; padding:56px 6%; }
+  main h2 { font-size:1.6rem; margin:40px 0 12px; color:var(--negro); }
+  main h2:first-child { margin-top:0; }
+  main h3 { font-size:1.15rem; margin:22px 0 6px; color:var(--negro); }
+  main p { margin-bottom:14px; }
+  main ul, main ol { margin:0 0 16px 22px; }
+  main a { color:var(--naranja); font-weight:600; }
+  .cards { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; margin:18px 0; }
+  .card { background:#fff; border-left:4px solid var(--naranja); padding:16px 18px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,.05); }
+  .card h3 { margin-top:0; }
+  .ejemplo { background:#fff; border:1px dashed #b9c6d6; border-radius:10px; padding:18px 22px; margin:14px 0 20px; font-family:Consolas, monospace; white-space:pre; overflow-x:auto; }
+  .faq details { background:#fff; border-radius:8px; padding:14px 18px; margin-bottom:10px; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+  .faq summary { font-weight:600; cursor:pointer; }
+  .faq details p { margin:10px 0 0; }
+  footer { background:var(--negro); color:#9aa7b8; text-align:center; padding:26px 6%; font-size:.9rem; }
+  footer a { color:var(--naranja); }
+  @media (max-width:780px){ .hero{grid-template-columns:1fr; padding:44px 6%;} .hero h1{font-size:1.9rem;} .cards{grid-template-columns:1fr;} header nav{display:none;} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Calculadora <span>Matemáticas</span></div>
+  <nav>
+    <a href="#operaciones">Operaciones</a>
+    <a href="#paso-a-paso">Paso a paso</a>
+    <a href="#preguntas">Preguntas</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>Calculadora <span>matemáticas</span> online y gratis</h1>
+    <p>Resuelve sumas, restas, multiplicaciones y divisiones en segundos. Además, aprende el procedimiento de cada operación con explicaciones claras pensadas para estudiantes, familias y docentes.</p>
+  </div>
+  <div class="calc">
+    <h2>Calcula ahora</h2>
+    <div class="fila">
+      <input type="number" id="a" placeholder="Número 1" step="any">
+      <select id="op" aria-label="Operación">
+        <option value="+">+</option>
+        <option value="-">−</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+      <input type="number" id="b" placeholder="Número 2" step="any">
+    </div>
+    <button onclick="calcular()">Calcular</button>
+    <div class="resultado" id="res">El resultado aparecerá aquí.</div>
+  </div>
+</section>
+
+<main>
+  <h2>¿Qué es una calculadora matemáticas?</h2>
+  <p>Una calculadora matemáticas es una herramienta que realiza operaciones aritméticas de forma rápida y sin errores. Sirve para comprobar tareas, preparar exámenes o resolver cuentas del día a día. Pero su verdadero valor aparece cuando, además del resultado, entiendes <em>cómo</em> se llega a él.</p>
+  <p>Por eso esta página no solo te da la respuesta: también te explica el método. Si buscas una herramienta más completa, la <a href="https://la-calculadoraalicia.com/">calculadora Alicia</a> muestra la resolución completa paso a paso de sumas, restas, multiplicaciones, divisiones y fracciones.</p>
+
+  <h2 id="operaciones">Las cuatro operaciones básicas</h2>
+  <div class="cards">
+    <div class="card"><h3>Suma (+)</h3><p>Une dos o más cantidades en una sola. Se resuelve columna por columna, de derecha a izquierda, llevando las decenas cuando hace falta.</p></div>
+    <div class="card"><h3>Resta (−)</h3><p>Calcula la diferencia entre dos números. Cuando la cifra de arriba es menor, se "pide prestado" a la columna de la izquierda.</p></div>
+    <div class="card"><h3>Multiplicación (×)</h3><p>Es una suma repetida. Se multiplica cada cifra y se suman los resultados parciales, desplazados una posición.</p></div>
+    <div class="card"><h3>División (÷)</h3><p>Reparte una cantidad en partes iguales. Se trabaja con dividendo, divisor, cociente y resto.</p></div>
+  </div>
+
+  <h2 id="paso-a-paso">Cómo resolver una división paso a paso</h2>
+  <p>La división es la operación que más dudas genera. Veamos un ejemplo sencillo: <strong>756 ÷ 4</strong>.</p>
+  <div class="ejemplo">756 | 4
+-4    ----
+---   189
+ 35
+-32
+---
+  36
+ -36
+ ---
+   0</div>
+  <ol>
+    <li><strong>Toma la primera cifra:</strong> 7 entre 4 cabe 1 vez. Escribe 1 en el cociente; 1 × 4 = 4; 7 − 4 = 3.</li>
+    <li><strong>Baja la siguiente cifra:</strong> se forma 35. 35 entre 4 cabe 8 veces; 8 × 4 = 32; 35 − 32 = 3.</li>
+    <li><strong>Baja la última cifra:</strong> se forma 36. 36 entre 4 cabe 9 veces; 9 × 4 = 36; 36 − 36 = 0.</li>
+    <li><strong>Resultado:</strong> el cociente es 189 y el resto es 0. División exacta.</li>
+  </ol>
+  <p>Para comprobarlo, multiplica el cociente por el divisor y suma el resto: 189 × 4 + 0 = 756. ¡Correcto!</p>
+
+  <h2>Consejos para aprender matemáticas más rápido</h2>
+  <ul>
+    <li><strong>Primero intenta, luego comprueba.</strong> Resuelve la operación en papel y usa la calculadora solo para verificar.</li>
+    <li><strong>Revisa cada paso, no solo el resultado.</strong> Así detectas exactamente dónde está el error.</li>
+    <li><strong>Practica un poco cada día.</strong> Diez minutos diarios rinden más que una hora a la semana.</li>
+    <li><strong>Domina las tablas de multiplicar.</strong> Son la base de la multiplicación, la división y las fracciones.</li>
+  </ul>
+  <p>Si quieres practicar con ejercicios resueltos, puedes usar esta <a href="https://la-calculadoraalicia.com/">calculadora paso a paso</a> gratuita: introduces la operación y ves todo el procedimiento explicado, ideal para repasar en casa.</p>
+
+  <h2 id="preguntas">Preguntas frecuentes</h2>
+  <div class="faq">
+    <details><summary>¿Esta calculadora matemáticas es gratis?</summary><p>Sí, es totalmente gratuita y funciona en el navegador, sin registro ni descargas.</p></details>
+    <details><summary>¿Funciona con decimales y números negativos?</summary><p>Sí. Puedes introducir números decimales (con punto) y negativos en ambos campos.</p></details>
+    <details><summary>¿Qué pasa si divido entre cero?</summary><p>La división entre cero no está definida en matemáticas, así que la calculadora te mostrará un aviso.</p></details>
+    <details><summary>¿Dónde puedo ver la resolución completa de una operación?</summary><p>En <a href="https://la-calculadoraalicia.com/">la-calculadoraalicia.com</a> encontrarás calculadoras que muestran cada paso del procedimiento.</p></details>
+  </div>
+</main>
+
+<footer>
+  <p>Calculadora Matemáticas · Herramienta educativa gratuita · Recurso recomendado: <a href="https://la-calculadoraalicia.com/">La Calculadora Alicia</a></p>
+</footer>
+
+<script>
+function calcular() {
+  var a = parseFloat(document.getElementById('a').value);
+  var b = parseFloat(document.getElementById('b').value);
+  var op = document.getElementById('op').value;
+  var res = document.getElementById('res');
+  if (isNaN(a) || isNaN(b)) { res.textContent = 'Introduce los dos números.'; return; }
+  var r, nombre, simbolo;
+  if (op === '+') { r = a + b; nombre = 'La suma'; simbolo = '+'; }
+  else if (op === '-') { r = a - b; nombre = 'La resta'; simbolo = '−'; }
+  else if (op === '*') { r = a * b; nombre = 'El producto'; simbolo = '×'; }
+  else {
+    if (b === 0) { res.textContent = 'No se puede dividir entre cero.'; return; }
+    r = a / b; nombre = 'El cociente'; simbolo = '÷';
+  }
+  r = Math.round(r * 1e10) / 1e10;
+  var extra = '';
+  if (op === '/' && Number.isInteger(a) && Number.isInteger(b)) {
+    var c = Math.trunc(a / b), resto = a - c * b;
+    extra = '<br>Cociente entero: ' + c + ' · Resto: ' + resto;
+  }
+  res.innerHTML = a + ' ' + simbolo + ' ' + b + ' = <strong>' + r + '</strong><br>' + nombre + ' es ' + r + '.' + extra;
+}
+</script>
+</body>
+</html>
